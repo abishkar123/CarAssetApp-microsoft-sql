@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CarAssetApp.Models.Asset>
+
+<h2>Assets</h2>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Asset</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Car Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ModelName</td>
+                <td>@item.Price</td>
+                <td>@item.CarNumber</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
